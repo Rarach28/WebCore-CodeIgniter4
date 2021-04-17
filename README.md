@@ -2,11 +2,11 @@
   
 ## Co je CodeIgniter?  
   
-CodeIgniter4 (4.1.1-může se v průběhu vývoje změnit), je roustní php framework, podobně jako například: Nette, Symphony, Laravel atd.  
+CodeIgniter4 (4.1.1-může se v průběhu vývoje změnit), je robustní php framework, podobně jako například: Nette, Symphony, Laravel atd.  
   
 ## Co je součástí tohoto repozitáře  
   
-V tomto repozitáři (snad) v budoucnu naleznete dynamické jádro webové aplikace ze kterého pomocí snadno doprogramovatelných modulů můžete vytvořit redakční aplikaci v podstatě pro cokoliv od školní docházky až po správu fotbalových turnajů (včetně plánování zápasů, vytíženost hřišť, statistiky hráčů atd).  
+V tomto repozitáři (snad) v budoucnu naleznete dynamické jádro webové aplikace, ze kterého pomocí snadno doprogramovatelných(MVC) modulů můžete vytvořit redakční aplikaci v podstatě pro cokoliv od školní docházky až po správu fotbalových turnajů (včetně plánování zápasů, vytíženost hřišť, statistiky hráčů atd).  
   
 ## stručný výčet základních funkcionalit (bez modulů):  
 
@@ -19,10 +19,10 @@ V tomto repozitáři (snad) v budoucnu naleznete dynamické jádro webové aplik
   - řízení celé databáze skrze webové rozhraní (práva uživatelů k jednotlivým dashbardům, struktura modulů atd..)  
 
 #####Dokumentace:
-  * kompletní dokumentace(v kódu, samostatný web/soubor jako návod), část UML  
+  * kompletní dokumentace(v kódu, samostatný web/soubor jako návod) jak pro jádro tak pro tvorbu a instalaci modulů, část UML  
   * realizace libovolného projektu postaveného na tomto jádře (další moduly nejsou součástí práce, ale **mohou být přidány kýmkoliv**)  
 ---------------------------------------------------------  
 ##### Pokud zbyde čas:  
-- instalace pomocí composru/php scriptu  
+- instalace pomocí composru/php/batch scriptu  
 - UI php script pro setup build in funkcionalit, aby redaktor napsal co nejméně(nejlépe žádný) kód   
  
