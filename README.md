@@ -1,56 +1,28 @@
-# CodeIgniter 4 Framework
+# Webové jádro pomocí frameworku CodeIgniter4
 
-## What is CodeIgniter?
+## Co je CodeIgniter?
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](http://codeigniter.com).
+CodeIgniter4 (4.1.1-může se v průběhu vývoje změnit), je roustní php framework, podobně jako například: Nette, Symphony, Laravel atd.
 
-This repository holds the distributable version of the framework,
-including the user guide. It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+## Co je součástí tohoto repozitáře
 
-More information about the plans for version 4 can be found in [the announcement](http://forum.codeigniter.com/thread-62615.html) on the forums.
+V tomto repozitáři (snad) v budoucnu naleznete dynamické jádro webové aplikace ze kterého pomocí snadno doprogramovatelných modulů můžete vytvořit redakční aplikaci v podstatě pro cokoliv od školní docházky až po správu fotbalových turnajů (včetně plánování zápasů, vytíženost hřišť, statistiky hráčů atd).
 
-The user guide corresponding to this version of the framework can be found
-[here](https://codeigniter4.github.io/userguide/).
+##stručný výčet základních funkcionalit (bez modulů):
+
+-google/facebook/ruční přihlášení
+-dynamické ACL (Access Control List), redaktor může dynamicky vytvářet a mazat role, a na základě nich určovat práva pro jednotlivé části aplikace
+-import/export dat CSV
+-dynamické grafy statistiky
+-komunikace mezi uživateli aplikace pomocí zpráv(synchronizováno s maily)
+-oznámení o následujících událostch (závislé na modulu)
+-řízení celé databáze skrze webové rozhraní (práva uživatelů k jednotlivým dashbardům, struktura modulů atd..)
+---------------------------------------------------------
+###Pokud zbyde čas:
+-instalace pomocí composru/php scriptu
+-UI php script pro setup build in funkcionalit, aby EU(end user) napsal co nejméně(nejlépe žádný) kód 
 
 
-## Important Change with index.php
++kompletní dokumentace, část UML
++realizace libovolného projektu postaveného na tomto jádře (další moduly nejsou součástí práce, ale **mohou být přidány kýmkoliv**)
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
-
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
-
-**Please** read the user guide for a better explanation of how CI4 works!
-
-## Repository Management
-
-We use Github issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
-
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
-
-## Contributing
-
-We welcome contributions from the community.
-
-Please read the [*Contributing to CodeIgniter*](https://github.com/codeigniter4/CodeIgniter4/blob/develop/contributing.md) section in the development repository.
-
-## Server Requirements
-
-PHP version 7.3 or higher is required, with the following extensions installed:
-
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
-
-Additionally, make sure that the following extensions are enabled in your PHP:
-
-- json (enabled by default - don't turn it off)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php)
-- xml (enabled by default - don't turn it off)
