@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+// variables
+$d-gray:#3b3b3b;
+$gray:#969696;
+$l-gray:rgba(219,
+219,
+219,
+42%);
+$d-blue: #033bb4;
+$blue: #0055b6;
+$l-blue: #0081d6;
+$black: #000;
+$white: #ffffff;
+$blank :hsla(0,
+0%,
+100%,
+0);
+// REWRITING BOOTSTRAP VARS
+// $primary: #333;
+$theme-colors:( "d-gray": $d-gray,
+"gray": $gray,
+"l-gray": $l-gray,
+"d-blue": $d-blue,
+"blue": $blue,
+"l-blue": $l-blue,
+"black": $black,
+"white": $white,
+"blank": $blank);
+$sm: 576px;
+$md:768px;
+$lg:992px;
+$xl:1200px;
+//mixins
+@mixin respond-to($breakpoint) {
+    @if $breakpoint=="sm" {
+        @media(min-width: $sm) {
+            @content;
+        }
+    }
+    @else if $breakpoint=="md" {
+        @media(min-width: $md) {
+            @content;
+        }
+    }
+    @else if $breakpoint=="lg" {
+        @media(min-width: $lg) {
+            @content;
+        }
+    }
+    @else if $breakpoint=="xl" {
+        @media(min-width: $xl) {
+            @content;
+        }
+    }
+}
+
+// 
+@import"../bootstrap/scss/bootstrap.scss";
+a {
+    color: $dark;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+a:hover {
+    @extend a;
+    font-weight: 500;
+    transition: 0.5s font-weight;
+}
+
+* {
+    color: $d-gray;
+    font-family: 'Roboto', sans-serif;
+}
+
+body,
+html {
+    height: 100%;
+    width: 100%;
+}
+
+.g-signin2 {
+    width: 180px;
+    height: 36px;
+    background-color: $gray;
+}
+
+.hr-long {
+    width: 95%;
+    margin: 10px auto;
+    height: 2px;
+}
