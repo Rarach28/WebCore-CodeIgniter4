@@ -31,7 +31,7 @@ class Login extends BaseController
             
             return redirect()->back()
                              ->withInput()
-                             ->with('error', 'Invalid login');
+                             ->with('error', 'Invalid login, možná zkuste jinou formu přihlášení..');
         }
     }
     

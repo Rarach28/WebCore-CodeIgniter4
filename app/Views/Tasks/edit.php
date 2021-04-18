@@ -18,8 +18,8 @@
 
     <?= $this->include('Tasks/form') ?>
     
-    <button>Save</button>
-    <a href="<?= site_url("/tasks/show/" . $task->id) ?>">Cancel</a>
+    <button class="btn btn-blue">Save</button>
+    <a class="btn btn-light" href="<?= site_url("/tasks/show") ?>">Cancel</a>
 
 </form>
 

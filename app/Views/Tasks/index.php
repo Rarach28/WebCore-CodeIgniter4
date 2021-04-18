@@ -6,11 +6,12 @@
 
     <h1>Tasks</h1>
     
-    <a href="<?= site_url("/tasks/new") ?>">New task</a>
+    
     <div>
         <label for="query">Search</label>
         <input name="query" id="query">    
     </div>
+    <a class="btn-sm btn-blue" href="<?= site_url("/tasks/new") ?>">New task</a>
     <?php if ($tasks): ?>
     
         <ul>

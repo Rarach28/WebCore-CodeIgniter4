@@ -1,3 +1,4 @@
+<?php if(!$user->social_id):?>
 <div>
     <label for="name">Name</label>
     <input type="text" name="name" id="name" value="<?= old('name', esc($user->name)) ?>">
@@ -20,7 +21,12 @@
     <label for="password_confirmation">Repeat password</label>
     <input type="password" name="password_confirmation">
 </div>
-
+<?php else:?>
+<div class="m-2">
+<p class="form-control" style="display:inline;" ><?=esc($user->name)?></p>
+<p class="form-control" style="display:inline;" ><?=esc($user->email)?></p>
+</div>
+<?php endif;?>
 <div>
     <label for="is_active">
         <?php if ($user->id == current_user()->id): ?>

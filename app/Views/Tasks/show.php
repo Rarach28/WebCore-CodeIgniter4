@@ -6,7 +6,7 @@
 
 <h1>Task</h1>
 
-<a href="<?= site_url("/tasks") ?>">&laquo; back to index</a>
+<a class="btn-sm btn-l-gray" href="<?= site_url("/tasks") ?>">&laquo; back to index</a>
 
 <dl>
     <dt>ID</dt>
@@ -22,7 +22,7 @@
     <dd><?= $task->updated_at ?></dd>
 </dl>
 
-<a href="<?= site_url('/tasks/edit/' . $task->id) ?>">Edit</a>
-<a href="<?= site_url('/tasks/delete/' . $task->id) ?>">Delete</a>
+<a class="btn btn-warning" href="<?= site_url('/tasks/edit/' . $task->id) ?>">Edit</a>
+<a class="btn btn-danger" href="<?= site_url('/tasks/delete/' . $task->id) ?>">Delete</a>
 
 <?= $this->endSection() ?>

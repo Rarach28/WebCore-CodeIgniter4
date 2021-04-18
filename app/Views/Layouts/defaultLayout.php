@@ -31,38 +31,41 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <?php if (current_user()): ?>
-                <?php if(current_user()->social_id==NULL):?>
-                <li class="nav-item" style="display: flex;pointer-events:none;">
-                    <?php if(current_user()->profile_image):?>
-                    <img src="<?=site_url("profile/image") ?>"
-                        style="padding:2px 0px;height:34px;width:30px;border-radius:50%;">
+                    <?php if(current_user()->social_id==NULL):?>
+                        <li class="nav-item" style="display: flex;pointer-events:none;">
+                        <?php if(current_user()->profile_image):?>
+                        <img src="<?=site_url("profile/image") ?>"
+                            style="padding:2px 0px;height:34px;width:30px;border-radius:50%;">
+                        <?php else:?>
+                        <img class="my-auto" src="<?=site_url("\img\blank_profile.png")?>"
+                            style="padding:2px 0px;height:34px;width:30px;border-radius:50%;">
+                        <?php endif;?>
+                        <p style="display:table-cell; padding-bottom:0; cursor:context-menu;" class="nav-link">
+                            <?= current_user()->name?></p>
+                        </li>
                     <?php else:?>
-                    <img class="my-auto" src="<?=site_url("\img\blank_profile.png")?>"
-                        style="padding:2px 0px;height:34px;width:30px;border-radius:50%;">
+                        <li class="nav-item" style="display: flex;pointer-events:none;">
+                            <img class="my-auto" src="<?=current_user()->profile_image?>"
+                                style="padding:2px 0px;height:34px;width:30px;border-radius:50%;">
+                            <a class="nav-link" href="<?= site_url("/profile/show") ?>"><?=current_user()->name?></a>
+                        </li>
                     <?php endif;?>
-                    <p style="display:table-cell; padding-bottom:0; cursor:context-menu;" class="nav-link">
-                        <?= current_user()->name?></p>
-                </li>
-                <?php else:?>
-                <li class="nav-item" style="display: flex;pointer-events:none;">
-                    <img class="my-auto" src="<?=current_user()->profile_image?>"
-                        style="padding:2px 0px;height:34px;width:30px;border-radius:50%;">
-                    <a class="nav-link" href="<?= site_url("/profile/show") ?>"><?=current_user()->name?></a>
-                </li>
-                <?php endif;?>
-                <?php if (current_user()->is_admin): ?>
-                <li class="nav-item active">
-                    <a class="nav-link" href="<?= site_url("/admin/users") ?>">uzivatele</a>
-                </li>
-                <?php endif;?>
-                <?php if(current_user()->social_id==NULL):?>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= site_url("/profile/show") ?>">Profil</a>
-                </li>
-                <?php endif;?>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= site_url("/logout") ?>">Odhlasit</a>
-                </li>
+                    <?php if (current_user()->is_admin): ?>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="<?= site_url("/admin/users") ?>">uzivatele</a>
+                    </li>
+                    <?php endif;?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= site_url("/tasks") ?>">Tasks</a>
+                    </li>
+                    <?php if(current_user()->social_id==NULL):?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= site_url("/profile/show") ?>">Profil</a>
+                    </li>
+                    <?php endif;?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= site_url("/logout") ?>">Odhlasit</a>
+                    </li>
                 <?php else: ?>
                 <a class="nav-link" href="<?= site_url("/signup") ?>">registrovat</a>
 
@@ -92,16 +95,17 @@
     <?php endif; ?>
 
     <?php if (session()->has('error')): ?>
-    <div class="text-center alert alert-danger alert-dismissible fade show mt-3 container" role="alert">
-        <strong><?=session('danger')?></strong>
+    <div class="text-center mx-auto alert alert-danger alert-dismissible fade show mt-3 container" role="alert">
+        <strong><?=session('error')?></strong>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
     <?php endif; ?>
+
     <?php if (session()->has('errors')): ?>
     <?php foreach(session('errors') as $error):?>
-        <div class="text-center alert alert-danger alert-dismissible fade show mt-3 container" role="alert">
+    <div class="text-center alert alert-danger alert-dismissible fade show mt-3 container" role="alert">
         <strong><?=$danger?></strong>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>

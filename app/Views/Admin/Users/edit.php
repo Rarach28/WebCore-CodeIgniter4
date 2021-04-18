@@ -18,8 +18,9 @@
 
     <?= $this->include('Admin/Users/form') ?>
     
-    <button>Save</button>
-    <a href="<?= site_url("/admin/users/show/" . $user->id) ?>">Cancel</a>
+    <a class="btn btn-l-gray"  href="<?= site_url("/admin/users/show/" . $user->id) ?>">Cancel</a>
+    <button class="btn btn-blue" >Save</button>
+    
 
 </form>
 

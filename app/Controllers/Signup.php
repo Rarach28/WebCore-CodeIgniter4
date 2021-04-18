@@ -109,7 +109,7 @@ class Signup extends BaseController
                 
                 return redirect()->back()
                                 ->withInput()
-                                ->with('error', 'Invalid login');
+                                ->with('error', 'Invalid login, možná zkuste jinou formu přihlášení..');
             }
 
             return redirect()->to("/signup/success")->with("info",$user->name);
