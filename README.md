@@ -18,7 +18,7 @@ V tomto repozitáři (snad) v budoucnu naleznete dynamické jádro webové aplik
   - oznámení o následujících událostch (závislé na modulu)  
   - řízení celé databáze skrze webové rozhraní (práva uživatelů k jednotlivým dashbardům, struktura modulů atd..)  
 
-#####Dokumentace:
+##### Dokumentace:
   * kompletní dokumentace(v kódu, samostatný web/soubor jako návod) jak pro jádro tak pro tvorbu a instalaci modulů, část UML  
   * realizace libovolného projektu postaveného na tomto jádře (další moduly nejsou součástí práce, ale **mohou být přidány kýmkoliv**)  
 ---------------------------------------------------------  
