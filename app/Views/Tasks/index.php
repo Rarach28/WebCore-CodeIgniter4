@@ -1,6 +1,7 @@
 <?= $this->extend("Layouts/defaultLayout") ?>
 
 <?= $this->section("title") ?>Tasks<?= $this->endSection() ?>
+<?= $this->section("addMeta") ?><link rel="stylesheet" type="text/css" href="<?= site_url('/css/auto-complete.css') ?>"><?= $this->endSection() ?>
 
 <?= $this->section("content") ?>
 
