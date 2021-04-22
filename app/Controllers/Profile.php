@@ -103,7 +103,7 @@ class Profile extends BaseController{
             header("Content-Type: $type");
             header("Content-Lenght: ".filesize($path));
 
-            readfile($path);
+            (readfile($path));
             exit;
         }
     }

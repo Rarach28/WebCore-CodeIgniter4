@@ -100,16 +100,16 @@ class Signup extends BaseController
                 $redirect_url = session('redirect_url') ?? '/';
                 
                 unset($_SESSION['redirect_url']);
+
                 
                 return redirect()->to($redirect_url)
                                 ->with('success', 'Login successful')
                                 ->withCookies();
                                 
             } else {
-                
                 return redirect()->back()
                                 ->withInput()
-                                ->with('error', 'Invalid login, možná zkuste jinou formu přihlášení..');
+                                ->with('error', 'Invalid registration, možná zkuste jinou formu přihlášení..');
             }
 
             return redirect()->to("/signup/success")->with("info",$user->name);

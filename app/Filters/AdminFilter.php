@@ -9,7 +9,7 @@ class AdminFilter implements FilterInterface
     public function before(RequestInterface $request, $arguments = null)
     {
         $user = service('auth')->getCurrentUser();
-        
+        // dd($user);
         if ( ! $user->is_admin) {
             
             $response = service('response');
