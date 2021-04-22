@@ -106,7 +106,7 @@
     <?php if (session()->has('errors')): ?>
     <?php foreach(session('errors') as $error):?>
     <div class="text-center alert alert-danger alert-dismissible fade show mt-3 container" role="alert">
-        <strong><?=$danger?></strong>
+        <strong><?=$error?></strong>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>

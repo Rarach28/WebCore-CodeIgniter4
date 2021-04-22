@@ -27,8 +27,14 @@ class SocialModel extends \CodeIgniter\Model
     
     public function findBySocialId($id)
     {
-        return $this->where('social_id', $id)
-                    ->first();
+        // $pom = $this->select("user.*,GROUP_CONCAT(role.name)  AS role")->where('user.social_id',$id)->join('user_role','user_role.user_id=user.id')->join('role','role.id=user_role.role_id')->first();
+        $pom = $this->select("user.*")->where('user.social_id',$id)->first();
+        // dd($pom);
+        if($pom->id){
+            return $pom;
+        } else{
+            return false;
+        }
     }
 
     public function getLastID(){

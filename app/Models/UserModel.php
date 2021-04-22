@@ -51,8 +51,17 @@ class UserModel extends \CodeIgniter\Model
     
     public function findByEmail($email)
     {
-        return $this->where('email', $email)
-                    ->first();
+        $pom = $this->select("user.*,GROUP_CONCAT(role.name)  AS role")->where('email',$email)->join('user_role','user_role.user_id=user.id')->join('role','role.id=user_role.role_id')->first();
+        return($pom);
+;
+        // return $this->where('email', $email)
+        //             ->first();
+    }
+
+    public function findById($id)
+    {
+        $pom = $this->select("user.*,GROUP_CONCAT(role.name)  AS role")->where('user.id',$id)->join('user_role','user_role.user_id=user.id')->join('role','role.id=user_role.role_id')->first();
+        return($pom);
     }
     
     public function disablePasswordValidation()

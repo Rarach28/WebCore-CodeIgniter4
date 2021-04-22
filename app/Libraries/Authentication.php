@@ -46,7 +46,6 @@ class Authentication
         $model = new \App\Models\SocialModel;
 
         $user = $model->findBySocialId($id);
-                      
         if ($user === null) {
             
             return false;
@@ -76,6 +75,11 @@ class Authentication
         $session = session();
         $session->regenerate();
         $session->set('user_id', $user->id);
+        $session->set('user_roles', $user->role);
+        $role_arr = preg_split ("/,/", $user->role);
+        foreach($role_arr as $role){
+            $session->set($role,1);
+        }
     }
     
     private function rememberLogin($user_id)
@@ -113,7 +117,7 @@ class Authentication
         
         $model = new \App\Models\UserModel;
         
-        $user = $model->find(session()->get('user_id'));
+        $user = $model->findById(session()->get('user_id'));
         
         if ($user && $user->is_active) {
             
