@@ -1,4 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap");
+.navbar-badge {
+  font-size: .6rem;
+  font-weight: 300;
+  padding: 2px 4px;
+  position: absolute;
+  right: 8px;
+  top: 7px; }
+
 /*!
  * Bootstrap v4.0.0 (https://getbootstrap.com)
  * Copyright 2011-2018 The Bootstrap Authors
@@ -7409,5 +7417,45 @@ html {
   width: 95%;
   margin: 10px auto;
   height: 2px; }
+
+.chat-info > *, .chat-info.my > * {
+  font-weight: bold;
+  color: rgba(80, 80, 80, 0.41);
+  font-weight: 0.8rem; }
+
+.chat-info, .chat-info.my {
+  margin-bottom: 2px;
+  margin-left: 60px;
+  margin-right: 16px; }
+
+.chat-info.my {
+  margin-left: 16px;
+  margin-right: 60px; }
+
+.chat-msg, .chat-msg.my {
+  background-color: #969696;
+  color: #f8f9fa;
+  padding: 5px;
+  border-radius: 0 12px 12px 12px; }
+
+.chat-msg.my {
+  background-color: #0081d6;
+  border-radius: 12px 0 12px 12px; }
+
+.chat-img > img {
+  padding: 0px;
+  height: 42px;
+  width: 42px;
+  margin: 0 5px;
+  border-radius: 50%; }
+
+.direct-chat-msg {
+  overflow-y: auto; }
+
+.msg {
+  margin-bottom: 11px; }
+
+.chat-msg-wrap {
+  display: inline-flex; }
 
 /*# sourceMappingURL=main.css.map */

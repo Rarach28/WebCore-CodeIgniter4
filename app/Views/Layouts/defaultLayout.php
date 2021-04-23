@@ -21,8 +21,8 @@
 </head>
 
 <body class="bg-l-gray no-gutters">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="<?= site_url("/") ?>">Home</a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light topnav">
+        <a style="font-weight:bold" class="navbar-brand" href="<?= site_url("/") ?>">Web<span class="text-blue">Core</span></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -51,7 +51,7 @@
                         </li>
                     <?php endif;?>
                     <?php if (current_user()->is_admin): ?>
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="<?= site_url("/admin/users") ?>">uzivatele</a>
                     </li>
                     <?php endif;?>
@@ -73,6 +73,15 @@
 
                 <?php endif; ?>
 
+            </ul>
+            <?php $module_arr = preg_split ("/,/", current_user()->module);?>
+            
+            <ul class="navbar-nav ml-auto">
+            <?php foreach($module_arr as $module): ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= site_url("/$module/") ?>"><?=$module;?></a>
+                </li>
+            <?php endforeach;?>
             </ul>
         </div>
     </nav>

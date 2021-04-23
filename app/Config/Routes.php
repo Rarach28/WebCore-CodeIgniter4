@@ -38,6 +38,26 @@ $routes->get('/signup', 'Signup::new', ['filter' => 'guest']);
 $routes->get('/login', 'Login::new', ['filter' => 'guest']);
 $routes->get('/logout', 'Login::delete');
 
+
+//Tohle automaticky načte Routes.php z podsložek složky Modules
+$modules_path = ROOTPATH . 'Module/';
+$modules = scandir($modules_path);
+
+foreach ($modules as $module) {
+	if ($module === '.' || $module === '..') {
+		continue;
+	}
+
+	if (is_dir($modules_path) . '/' . $module) {
+		$routes_path = $modules_path . $module . '/Config/Routes.php';
+		if (file_exists($routes_path)) {
+			require $routes_path;
+		} else {
+			continue;
+		}
+	}
+}
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

@@ -2,6 +2,6 @@
 
 namespace App\Entities;
 
-class Role extends \CodeIgniter\Entity
+class Message extends \CodeIgniter\Entity
 {
 }

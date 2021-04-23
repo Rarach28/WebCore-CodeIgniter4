@@ -60,7 +60,7 @@ class UserModel extends \CodeIgniter\Model
 
     public function findById($id)
     {
-        $pom = $this->select("user.*,GROUP_CONCAT(role.name)  AS role")->where('user.id',$id)->join('user_role','user_role.user_id=user.id')->join('role','role.id=user_role.role_id')->first();
+        $pom = $this->select("user.*,GROUP_CONCAT(role.name)  AS role, GROUP_CONCAT(module.name)  AS module")->where('user.id',$id)->join('user_role','user_role.user_id=user.id')->join('role','role.id=user_role.role_id')->join('role_module','role_module.role_id=role.id')->join('module','role_module.module_id=module.id')->first();
         return($pom);
     }
     

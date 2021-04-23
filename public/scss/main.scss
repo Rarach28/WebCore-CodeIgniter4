@@ -54,6 +54,15 @@ $xl:1200px;
     }
 }
 
+.navbar-badge {
+    font-size: .6rem;
+    font-weight: 300;
+    padding: 2px 4px;
+    position: absolute;
+    right: 8px;
+    top: 7px;
+}
+
 // 
 @import"../bootstrap/scss/bootstrap.scss";
 a {
@@ -90,3 +99,58 @@ html {
     margin: 10px auto;
     height: 2px;
 }
+
+.chat-info>* {
+    font-weight: bold;
+    color: rgba(80, 80, 80, 0.41);
+    font-weight: 0.8rem;
+}
+
+.chat-info {
+    margin-bottom: 2px;
+    margin-left: 60px;
+    margin-right: 16px;
+}
+
+.chat-info.my {
+    @extend .chat-info;
+    margin-left: 16px;
+    margin-right: 60px;
+}
+
+.chat-msg {
+    background-color: $gray;
+    color: $light;
+    padding: 5px;
+    border-radius: 0 12px 12px 12px;
+}
+
+.chat-msg.my {
+    @extend .chat-msg;
+    background-color: $l-blue;
+    border-radius: 12px 0 12px 12px;
+}
+
+.chat-img>img {
+    padding: 0px;
+    height: 42px;
+    width: 42px;
+    margin: 0 5px;
+    border-radius: 50%;
+}
+
+.direct-chat-msg {
+    // max-height: 400px;
+    overflow-y: auto;
+}
+
+.msg {
+    margin-bottom: 11px;
+}
+
+.chat-msg-wrap {
+    display: inline-flex;
+}
+
+// .direct-chat-msg-content {
+// }
