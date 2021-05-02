@@ -109,4 +109,10 @@ class UserModel extends \CodeIgniter\Model
         
         return $user;
     }
+
+    public function lastUserId(){
+
+        $pom = $this->orderBy('id','DESC')->first();
+        return $pom->id;
+    }
 }

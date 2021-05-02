@@ -22,7 +22,8 @@
 
 <body class="bg-l-gray no-gutters">
     <nav class="navbar navbar-expand-lg navbar-light bg-light topnav">
-        <a style="font-weight:bold" class="navbar-brand" href="<?= site_url("/") ?>">Web<span class="text-blue">Core</span></a>
+        <a style="font-weight:bold" class="navbar-brand" href="<?= site_url("/") ?>">Web<span
+                class="text-blue">Core</span></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -31,41 +32,41 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <?php if (current_user()): ?>
-                    <?php if(current_user()->social_id==NULL):?>
-                        <li class="nav-item" style="display: flex;pointer-events:none;">
-                        <?php if(current_user()->profile_image):?>
-                        <img src="<?=site_url("profile/image") ?>"
-                            style="padding:2px 0px;height:34px;width:30px;border-radius:50%;">
-                        <?php else:?>
-                        <img class="my-auto" src="<?=site_url("\img\blank_profile.png")?>"
-                            style="padding:2px 0px;height:34px;width:30px;border-radius:50%;">
-                        <?php endif;?>
-                        <p style="display:table-cell; padding-bottom:0; cursor:context-menu;" class="nav-link">
-                            <?= current_user()->name?></p>
-                        </li>
+                <?php if(current_user()->social_id==NULL):?>
+                <li class="nav-item" style="display: flex;pointer-events:none;">
+                    <?php if(current_user()->profile_image):?>
+                    <img src="<?=site_url("profile/image") ?>"
+                        style="padding:2px 0px;height:34px;width:30px;border-radius:50%;">
                     <?php else:?>
-                        <li class="nav-item" style="display: flex;pointer-events:none;">
-                            <img class="my-auto" src="<?=current_user()->profile_image?>"
-                                style="padding:2px 0px;height:34px;width:30px;border-radius:50%;">
-                            <a class="nav-link" href="<?= site_url("/profile/show") ?>"><?=current_user()->name?></a>
-                        </li>
+                    <img class="my-auto" src="<?=site_url("\img\blank_profile.png")?>"
+                        style="padding:2px 0px;height:34px;width:30px;border-radius:50%;">
                     <?php endif;?>
-                    <?php if (current_user()->is_admin): ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?= site_url("/admin/users") ?>">uzivatele</a>
-                    </li>
-                    <?php endif;?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?= site_url("/tasks") ?>">Tasks</a>
-                    </li>
-                    <?php if(current_user()->social_id==NULL):?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?= site_url("/profile/show") ?>">Profil</a>
-                    </li>
-                    <?php endif;?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?= site_url("/logout") ?>">Odhlasit</a>
-                    </li>
+                    <p style="display:table-cell; padding-bottom:0; cursor:context-menu;" class="nav-link">
+                        <?= current_user()->name?></p>
+                </li>
+                <?php else:?>
+                <li class="nav-item" style="display: flex;pointer-events:none;">
+                    <img class="my-auto" src="<?=current_user()->profile_image?>"
+                        style="padding:2px 0px;height:34px;width:30px;border-radius:50%;">
+                    <a class="nav-link" href="<?= site_url("/profile/show") ?>"><?=current_user()->name?></a>
+                </li>
+                <?php endif;?>
+                <?php if (current_user()->is_admin): ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= site_url("/admin/users") ?>">uzivatele</a>
+                </li>
+                <?php endif;?>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= site_url("/tasks") ?>">Tasks</a>
+                </li>
+                <?php if(current_user()->social_id==NULL):?>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= site_url("/profile/show") ?>">Profil</a>
+                </li>
+                <?php endif;?>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= site_url("/logout") ?>">Odhlasit</a>
+                </li>
                 <?php else: ?>
                 <a class="nav-link" href="<?= site_url("/signup") ?>">registrovat</a>
 
@@ -74,15 +75,27 @@
                 <?php endif; ?>
 
             </ul>
-            <?php $module_arr = preg_split ("/,/", current_user()->module);?>
             
-            <ul class="navbar-nav ml-auto">
-            <?php foreach($module_arr as $module): ?>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= site_url("/$module/") ?>"><?=$module;?></a>
+            <?php if(current_user()){ $module_arr = preg_split ("/,/", current_user()->module);?>
+            <?php if (current_user()->module):?>
+            <ul class="navbar-nav ml-auto mr-4">
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Moduly
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <?php if(current_user()){ foreach($module_arr as $module):?>
+                        <a class="dropdown-item" href="<?= site_url("/$module/") ?>"><?=$module;?></a>
+                        <div class="dropdown-divider"></div>
+
+                        <?php endforeach;}?>
+                    </div>
                 </li>
-            <?php endforeach;?>
+
             </ul>
+            <?php endif;}?>
         </div>
     </nav>
     <?php if (session()->has('success')): ?>

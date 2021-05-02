@@ -8,4 +8,8 @@ $routes->group("Message", ["namespace" => "\Module\Message\Controllers"], functi
     // other page - URL: /Message/other-method
 	$routes->get("other-method", "MessageController::otherMethod");
 
+	$routes->get("chatWith/(:any)", "MessageController::chatWith/$1");
+
+	$routes->get("chatTo", "MessageController::chatTo");
+
 });

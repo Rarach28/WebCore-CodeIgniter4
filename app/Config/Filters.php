@@ -22,6 +22,8 @@ class Filters extends BaseConfig
 		'login'    => \App\Filters\LoginFilter::class,
 		'guest'    => \App\Filters\GuestFilter::class,
 		'admin'    => \App\Filters\AdminFilter::class,
+
+		'message'    => \Module\Message\Filters\MessageFilter::class,
 	];
 
 	/**
@@ -79,7 +81,15 @@ class Filters extends BaseConfig
             'before' => [
                 'password/*'
 			]
-		]
+		],
+
+		'message' => [
+			'before' => [
+				'message(/*)?',
+			]
+		],
+
+
 
 	];
 }

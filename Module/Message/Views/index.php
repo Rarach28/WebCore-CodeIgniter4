@@ -1,85 +1,68 @@
 <?= $this->extend("Layouts/defaultLayout") ?>
 
-<?= $this->section("addMeta")?>
-<script src="<?=site_url("/js/jquery.redirect.js")?>"></script>
-
-<meta name="google-signin-client_id" content="701853397027-d7fqtk17q636eme76c4osmug6u2r0ufi.apps.googleusercontent.com">
-<script src="https://apis.google.com/js/platform.js" async defer></script>
-<?= $this->endSection();?>
-
 
 <?= $this->section('title') ?>WebCore<?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
 
 
-<div class="container-md bg-light rounded">
-    <div class="card bg-warning">
-        <!-- HEADER -->
-        <div class="card-header d-flex justify-content-between">
-            <div>
-                <h4>John Doe</h4>
-            </div>
-            <div>
-                <a href="#"><i class="fas fa-comments"></i><span class="badge badge-danger navbar-badge">6</span></a>
-            </div>
-        </div>
-        <!-- BODY -->
-        <div class="card-body direct-chat-msg">
-            <div class="direct-chat-msg-content">
-                <?php for($i=0;$i<4;$i++):?>
-                <div class="msg">
-                    <div class=" chat-info d-flex justify-content-between">
-                        <span>23.4. 7:00</span>
-                        <span>John Doe</span>
-                    </div>
-                    <div class="chat-msg-wrap w-100">
-                        <div class="chat-img"><img class="my-auto" src="<?=site_url("\img\blank_profile.png")?>"></div>
-                        <div class="col chat-msg">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod,
-                            quaerat
-                            esse.
-                            Alias, id a, pariatur quos, fugiat quidem veritatis laborum sapiente assumenda quaerat quod.
-                            Mollitia nemo voluptatum eaque magnam similique.</div>
-                    </div>
+<div class="w-100 no-gutters">
+    <div class="chat-prev" style="height:100vh;overflow:auto;">
+        <?php foreach($allUsers as $aUser):?>
+        <a href="<?=site_url('/Message/chatWith/'.$aUser->from_user_id)?>">
+            <div class="msg-prev ">
+                <div class="chat-img">
+                    <?php if($aUser->profile_image):?>
+                    <?php if($aUser->social_id):?>
+                    <img class="my-auto" src="<?=$aUser->profile_image?>">
+                    <?php else:?>
+                    <img class="my-auto" src="<?=site_url($aUser->profile_image)?>">
+                    <?php endif;?>
+                    <?php else:?>
+                    <img class="my-auto" src="<?=site_url("\img\blank_profile.png")?>">
+                    <?php endif;?>
                 </div>
-                <div class="msg">
-                    <div class="chat-info my d-flex justify-content-between">
-                        <span>23.4. 7:00</span>
-                        <span>John Doe</span>
+                <div class="msg-prev-info">
+                    <div class="h6 d-flex justify-content-between container"><?=$aUser->name?> <span
+                            style="font-weight: bold;color: rgba(80, 80, 80, 0.41);"><?=$aUser->time?></span>
                     </div>
-                    <div class="chat-msg-wrap w-100">
-                        <div class="col chat-msg my">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod,
-                            quaerat
-                            esse.
-                            Alias, id a, pariatur quos, fugiat quidem veritatis laborum sapiente assumenda quaerat quod.
-                            Mollitia nemo voluptatum eaque magnam similique.</div>
-                        <div class="chat-img"><img class="my-auto" src="<?=site_url("\img\blank_profile.png")?>"></div>
-                    </div>
+                    <div class="msg-prev-msg container"><?=$aUser->text?></div>
                 </div>
-                <?php endfor;?>
+
+            </div>
+        </a>
+        <?php endforeach;?>
+
+        <!-- <?php for($i=0;$i<28;$i++):?>
+        <div class="msg-prev ">
+            <div class="chat-img"><img class="my-auto" src="<?=site_url("\img\blank_profile.png")?>"></div>
+            <div class="msg-prev-info">
+                <div class="h6 d-flex justify-content-between container">John Doe <span
+                        style="font-weight: bold;color: rgba(80, 80, 80, 0.41);">7:24</span>
+                </div>
+                <div class="msg-prev-msg container">Lorem ipsum dolor, sit amet...</div>
             </div>
         </div>
-        <!-- FOOTER -->
-        <div class="card-footer" style="display: block;">
-            <?= form_open("#") ?>
-            <div class="input-group">
-                <input type="text" name="message" placeholder="Napište zprávu ..." class="form-control">
-                <span class="input-group-append">
-                    <button type="button" class="btn btn-primary"><i
-                            class=" text-light fas fa-paper-plane"></i></button>
-                </span>
-            </div>
-            </form>
-        </div>
+        <?php endfor;?> -->
     </div>
 </div>
 
 <script>
 $(document).ready(function() {
+    $("#shell").removeClass("container");
 
     resizeMap();
 });
+$("#chatToggle").click(function() {
+    $(".chat-prev").toggleClass("d-none");
+    $(".chat-direct").toggleClass("d-none");
+});
 
+$(".prev-toggle").click(function() {
+    $(".chat-prev").toggleClass("d-md-block");
+    $(".chat-direct").toggleClass("col-12");
+    $(".chat-direct").toggleClass("col-md-9");
+});
 // resize on collapse
 
 // $('#navbarSupportedContent').on('hidden.bs.collapse', function () {
@@ -94,13 +77,14 @@ function resizeMap() {
     $(".topnav").each(function() {
         // console.log($(this).height());
         h = h - $(this).height();
-    
+
     });
-    
-    
 
 
-    $(".direct-chat-msg").height(h - 184);
+
+
+    $(".direct-chat-msg").height(h - 192);
+    $(".chat-prev").height(h - 20);
     // updateScroll();
 }
 

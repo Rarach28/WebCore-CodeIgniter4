@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
 // variables
 $d-gray:#3b3b3b;
-$gray:#969696;
+$gray:#616161;
 $l-gray:rgba(219,
 219,
 219,
@@ -9,6 +9,7 @@ $l-gray:rgba(219,
 $d-blue: #033bb4;
 $blue: #0055b6;
 $l-blue: #0081d6;
+$ll-blue: #00c3e2;
 $black: #000;
 $white: #ffffff;
 $blank :hsla(0,
@@ -102,7 +103,7 @@ html {
 
 .chat-info>* {
     font-weight: bold;
-    color: rgba(80, 80, 80, 0.41);
+    color: rgba(255, 255, 255, 0.38);
     font-weight: 0.8rem;
 }
 
@@ -123,12 +124,14 @@ html {
     color: $light;
     padding: 5px;
     border-radius: 0 12px 12px 12px;
+    padding: 9px;
 }
 
 .chat-msg.my {
     @extend .chat-msg;
-    background-color: $l-blue;
+    background-color: $ll-blue;
     border-radius: 12px 0 12px 12px;
+    margin-left: auto;
 }
 
 .chat-img>img {
@@ -146,10 +149,39 @@ html {
 
 .msg {
     margin-bottom: 11px;
+    max-width: 95vw;
+}
+
+.msg.my {
+    margin-left: auto;
 }
 
 .chat-msg-wrap {
     display: inline-flex;
+}
+
+.msg-prev {
+    display: flex;
+    justify-content: space-around;
+    padding: 8px;
+    border-bottom: 1px solid rgba(80, 80, 80, 0.41);
+}
+
+.msg-prev:hover {
+    background-color: $gray;
+    cursor: pointer;
+}
+
+.msg-prev-info {
+    width: 100%;
+}
+
+.msg-prev-msg {
+    font-weight: 400;
+}
+
+.chat-direct-header {
+    color: $light;
 }
 
 // .direct-chat-msg-content {
