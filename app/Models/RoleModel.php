@@ -21,6 +21,10 @@ class RoleModel extends \CodeIgniter\Model
         $pom = $this->select("GROUP_CONCAT(role.name) AS name")->join('user_role','user_role.role_id=role.id')->where('user_role.user_id',$id)->first();
         return($pom);
     }
+
+    public function getByName($name){
+        return $this->where("name",$name)->first();
+    }
     // SELECT R.name FROM user_role JOIN role R ON (R.id=user_role.role_id) where user_role.user_id=102    
     
   
